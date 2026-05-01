@@ -14,7 +14,7 @@ from .dtos.user import (
 from nlp.errors import (
     UserAlreadyExists,
     UndefinedUserError,
-    InvalidPasswordWError
+    InvalidPasswordError
 )
 from nlp.entities import User
 from nlp.services import (
@@ -50,7 +50,7 @@ async def login_user(
     if not user:
         raise UndefinedUserError("User does not exist")
     if not password_services.check_password(user.password, dto.password):
-        raise InvalidPasswordWError("Invalid password")
+        raise InvalidPasswordError("Invalid password")
     token = auth_service.generate_user_token(user.id)
     resp = JSONResponse({"detail": "Logged in"})
     resp.set_cookie("token", token)

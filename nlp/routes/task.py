@@ -27,7 +27,7 @@ from nlp.repositories import (
 )
 from nlp.errors import (
     UndefinedProjectError,
-    UserDoesNotRelatedProject
+    UserDoesNotRelatedToProject
 )
 
 task_router = APIRouter(prefix="/tasks", tags=["Tasks router"], route_class=DishkaRoute)
