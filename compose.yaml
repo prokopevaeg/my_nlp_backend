@@ -15,7 +15,7 @@ services:
         condition: service_started
 
   nlp_db:
-    image: postgres:18-alpine
+    image: postgres:15
     volumes:
       - nlp_db_data:/var/lib/postgresql
     hostname: database
