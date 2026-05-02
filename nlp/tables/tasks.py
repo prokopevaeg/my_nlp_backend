@@ -18,7 +18,7 @@ tasks = Table(
     "tasks", metadata,
     id_(),
     Column("name", String, unique=False, nullable=False),
-    Column("user_id", ForeignKey("user.id", ondelete="SET NULL"), nullable=True, unique=False),
+    Column("user_id", ForeignKey("users.id", ondelete="SET NULL"), nullable=True, unique=False),
     Column("project_id", ForeignKey("projects.id", ondelete="CASCADE"), unique=False, nullable=False),
     Column("data", String, nullable=False, unique=False),
     Column("created_at", DateTime(timezone=True), nullable=False),
